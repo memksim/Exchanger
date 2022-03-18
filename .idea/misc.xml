@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/drawable/divider_drawable.xml" value="0.133" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/currency_item.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/fragment_exchange_page.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/fragment_list_page.xml" value="0.264" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/valute_item.xml" value="0.25" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/menu/top_app_bar.xml" value="0.3625" />
+        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/xml/network_security_config.xml" value="0.3101851851851852" />
       </map>
     </option>
   </component>

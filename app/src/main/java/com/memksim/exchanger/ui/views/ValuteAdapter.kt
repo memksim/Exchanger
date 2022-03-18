@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.memksim.exchanger.R
 import com.memksim.exchanger.model.Valute
 
-class ValuteAdapter(val items: List<Valute>, val context: Context): RecyclerView.Adapter<ValuteAdapter.ValuteViewHolder>() {
+class ValuteAdapter(private val context: Context): RecyclerView.Adapter<ValuteAdapter.ValuteViewHolder>() {
+
+    var items: List<Valute> = emptyList()
 
     class ValuteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val valuteTitle: TextView = itemView.findViewById(R.id.valuteTitle)

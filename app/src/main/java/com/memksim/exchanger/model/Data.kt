@@ -5,8 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class Data(
     @SerializedName("Date") val date: String,
     @SerializedName("PreviousDate") val previousDate: String,
-    @SerializedName("Valute") val valute: List<Valute>
-)
+    @SerializedName("Valute") val valute: ValuteList
+){
+
+}
 
 
 

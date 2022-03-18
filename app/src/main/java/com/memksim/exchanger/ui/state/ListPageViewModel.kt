@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.memksim.exchanger.model.Valute
 import com.memksim.exchanger.model.repos.ValuteRepository
 
-class ListPageViewModel: ViewModel() {
+class ListPageViewModel: ViewModel(), Callback {
 
     private val repository = ValuteRepository()
 
@@ -16,7 +16,11 @@ class ListPageViewModel: ViewModel() {
     var liveData: LiveData<List<Valute>> = _data
 
     fun getValuteFromNet(){
-        repository.getValuteFromNet()
+        repository.getValuteFromNet(this)
+    }
+
+    override fun notifyDataSetChanged(data: List<Valute>) {
+        _data.value = data
     }
 
 
