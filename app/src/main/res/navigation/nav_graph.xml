@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listPageFragment">
+
+    <fragment
+        android:id="@+id/listPageFragment"
+        android:name="com.memksim.exchanger.ui.views.ListPageFragment"
+        android:label="ListPageFragment"
+        tools:layout="@layout/fragment_list_page">
+        <action
+            android:id="@+id/action_listPageFragment_to_exchangePageFragment"
+            app:destination="@id/exchangePageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exchangePageFragment"
+        android:name="com.memksim.exchanger.ui.views.ExchangePageFragment"
+        android:label="ExchangePageFragment"
+        tools:layout="@layout/fragment_exchange_page">
+        <action
+            android:id="@+id/action_exchangePageFragment_to_listPageFragment"
+            app:destination="@id/listPageFragment" />
+        <argument
+            android:name="valute"
+            app:argType="com.memksim.exchanger.model.Valute" />
+    </fragment>
+</navigation>

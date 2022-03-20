@@ -9,13 +9,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.memksim.exchanger.R
 import com.memksim.exchanger.model.Valute
 
-class ValuteAdapter(private val context: Context): RecyclerView.Adapter<ValuteAdapter.ValuteViewHolder>() {
+interface ActionListener{
+
+    fun onItemClicked(valute: Valute)
+
+}
+
+class ValuteAdapter(
+    private val context: Context,
+    private val listener: ActionListener):
+    RecyclerView.Adapter<ValuteAdapter.ValuteViewHolder>() {
 
     var items: List<Valute> = emptyList()
 
-    class ValuteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class ValuteViewHolder(val itemView: View, val listener: ActionListener, val items: List<Valute>): RecyclerView.ViewHolder(itemView), View.OnClickListener{
         val valuteTitle: TextView = itemView.findViewById(R.id.valuteTitle)
         val valuteValue: TextView = itemView.findViewById(R.id.valuteValue)
+
+        init{
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(p0: View?) {
+            listener.onItemClicked(items[adapterPosition])
+        }
 
     }
 
@@ -24,7 +41,7 @@ class ValuteAdapter(private val context: Context): RecyclerView.Adapter<ValuteAd
             .from(context)
             .inflate(R.layout.valute_item, parent, false)
 
-        return ValuteViewHolder(view)
+        return ValuteViewHolder(view, listener, items)
     }
 
     override fun onBindViewHolder(holder: ValuteViewHolder, position: Int) {

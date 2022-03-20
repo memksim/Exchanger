@@ -1,6 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+
+            app:title="@string/app_name"
+            app:titleTextColor="@color/design_default_color_on_primary"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/rubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="RUB"
+        android:textColor="@color/black"
+        android:textSize="64sp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/rubInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:inputType="number"
+
+        app:layout_constraintStart_toStartOf="@id/rubTitle"
+        app:layout_constraintTop_toBottomOf="@id/rubTitle"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/rubTitle"
+        />
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+
+        android:src="@drawable/ic_baseline_swap"
+        app:tint="@color/grey"
+
+        app:layout_constraintStart_toStartOf="@id/rubTitle"
+        app:layout_constraintTop_toBottomOf="@id/rubInput"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/rubTitle"/>
+
+    <TextView
+        android:id="@+id/valuteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="USD"
+        android:textColor="@color/black"
+        android:textSize="64sp"
+
+        app:layout_constraintStart_toStartOf="@id/rubTitle"
+        app:layout_constraintTop_toBottomOf="@id/icon"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/rubTitle"
+        />
+
+    <EditText
+        android:id="@+id/valuteInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:inputType="number"
+
+        app:layout_constraintStart_toStartOf="@id/valuteTitle"
+        app:layout_constraintTop_toBottomOf="@id/valuteTitle"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/valuteTitle"
+        />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
