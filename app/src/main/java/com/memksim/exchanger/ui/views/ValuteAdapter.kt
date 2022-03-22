@@ -23,8 +23,9 @@ class ValuteAdapter(
     var items: List<Valute> = emptyList()
 
     class ValuteViewHolder(val itemView: View, val listener: ActionListener, val items: List<Valute>): RecyclerView.ViewHolder(itemView), View.OnClickListener{
+        val valuteNominal: TextView = itemView.findViewById(R.id.valuteNominal)
         val valuteTitle: TextView = itemView.findViewById(R.id.valuteTitle)
-        val valuteValue: TextView = itemView.findViewById(R.id.valuteValue)
+        val rubNominal: TextView = itemView.findViewById(R.id.rubNominal)
 
         init{
             itemView.setOnClickListener(this)
@@ -45,8 +46,9 @@ class ValuteAdapter(
     }
 
     override fun onBindViewHolder(holder: ValuteViewHolder, position: Int) {
+        holder.valuteNominal.text = items[position].nominal.toString()
         holder.valuteTitle.text = items[position].charCode
-        holder.valuteValue.text = items[position].value.toString()
+        holder.rubNominal.text = items[position].value.toString()
     }
 
     override fun getItemCount(): Int {

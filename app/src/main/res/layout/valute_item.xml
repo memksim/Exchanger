@@ -8,11 +8,11 @@
     android:id="@+id/valuteItemLayout">
 
     <TextView
-        android:id="@+id/valuteTitle"
+        android:id="@+id/valuteNominal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="USD"
+        android:text="1"
         android:textSize="24sp"
         android:textColor="@color/design_default_color_on_secondary"
 
@@ -23,13 +23,56 @@
         />
 
     <TextView
-        android:id="@+id/valuteValue"
+        android:id="@+id/valuteTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="108"
+        android:text="USD"
+        android:textSize="30sp"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textStyle="bold"
+
+        app:layout_constraintTop_toTopOf="@id/valuteNominal"
+        app:layout_constraintStart_toEndOf="@id/valuteNominal"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/valuteNominal"/>
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:src="@drawable/ic_baseline_exchange_red"
+        app:tint="@color/main"
+
+        app:layout_constraintStart_toEndOf="@id/valuteTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rubNominal"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/rubNominal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="103"
         android:textSize="24sp"
         android:textColor="@color/design_default_color_on_secondary"
+
+        app:layout_constraintEnd_toStartOf="@id/rubTitle"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="@id/rubTitle"
+        app:layout_constraintBottom_toBottomOf="@id/rubTitle"/>
+
+    <TextView
+        android:id="@+id/rubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="RUB"
+        android:textSize="30sp"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textStyle="bold"
 
         app:layout_constraintTop_toTopOf="@id/valuteTitle"
         app:layout_constraintEnd_toEndOf="parent"

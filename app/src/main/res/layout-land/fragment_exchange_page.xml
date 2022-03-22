@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+
+            app:navigationIcon="@drawable/ic_baseline_arrow_back"
+
+            app:title="@string/app_name"
+            app:titleTextColor="@color/design_default_color_on_primary" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/rubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="32dp"
+        android:text="RUB"
+
+        android:textColor="@color/black"
+        android:textSize="64sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <TextView
+        android:id="@+id/rubDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/rubDescription"
+        android:textColor="@color/grey"
+
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/rubTitle"
+        app:layout_constraintStart_toStartOf="@id/rubTitle" />
+
+    <EditText
+        android:id="@+id/rubInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="16dp"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/rubTitle"
+        app:layout_constraintStart_toEndOf="@+id/rubTitle" />
+
+
+    <ImageView
+        android:id="@+id/iconRubToValute"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+
+        android:src="@drawable/ic_baseline_arrow_forward"
+        app:layout_constraintBottom_toTopOf="@+id/iconValuteToRub"
+        app:layout_constraintEnd_toStartOf="@+id/valuteTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rubTitle"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:tint="@color/grey" />
+
+    <ImageView
+        android:id="@+id/iconValuteToRub"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+
+        android:src="@drawable/ic_baseline_arrow_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/valuteTitle"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/rubTitle"
+        app:layout_constraintTop_toBottomOf="@+id/iconRubToValute"
+        app:tint="@color/grey" />
+
+    <TextView
+        android:id="@+id/valuteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="32dp"
+        android:text="USD"
+
+        android:textColor="@color/black"
+        android:textSize="64sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
+
+    <TextView
+        android:id="@+id/valuteDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="Доллар сша"
+        android:textColor="@color/grey"
+
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/valuteTitle"
+        app:layout_constraintTop_toBottomOf="@+id/valuteTitle" />
+
+    <EditText
+        android:id="@+id/valuteInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="16dp"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="@+id/valuteTitle"
+        app:layout_constraintEnd_toStartOf="@+id/valuteTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

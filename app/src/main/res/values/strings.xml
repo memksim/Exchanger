@@ -6,6 +6,7 @@
     <string name="settings_page">Настройки</string>
     <string name="sum">Сумма</string>
     <string name="valuteDescription">Наименование валюты</string>
+    <string name="rubDescription">Российский рубль</string>
 
     <string-array name="valutes">
         <item>AUD</item>
