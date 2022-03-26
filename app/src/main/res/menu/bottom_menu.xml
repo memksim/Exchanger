@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/listPageFragment"
+        android:icon="@drawable/ic_baseline_home_red"
+        android:title="@string/home_page" />
+    <item
+        android:id="@+id/exchangePageFragment"
+        android:icon="@drawable/ic_baseline_exchange_red"
+        android:title="@string/exchange_page" />
+    <item
+        android:id="@+id/settingsPageFragment"
+        android:icon="@drawable/ic_baseline_settings_red"
+        android:title="@string/settings_page" />
+</menu>

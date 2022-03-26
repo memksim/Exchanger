@@ -3,5 +3,5 @@ package com.memksim.exchanger.ui.views
 import androidx.fragment.app.Fragment
 import com.memksim.exchanger.R
 
-class ExchangePageFragment: Fragment(R.layout.fragment_exchange_page) {
+class SettingsPageFragment: Fragment(R.layout.fragment_settings_page) {
 }

@@ -2,7 +2,7 @@ package com.memksim.exchanger.model.repos
 
 import android.app.Application
 import android.util.Log
-import com.memksim.exchanger.TAG
+import com.memksim.exchanger.MAIN_TAG
 import com.memksim.exchanger.model.Data
 import com.memksim.exchanger.model.Valute
 import com.memksim.exchanger.model.ValuteForDb
@@ -25,7 +25,7 @@ class ValuteRepository(private val applicationContext: Application) {
 
     private fun clearBag(){
         disposableBag.dispose()
-        Log.d(TAG, "clearBag: cleared - ${disposableBag.size()}")
+        Log.d(MAIN_TAG, "clearBag: cleared - ${disposableBag.size()}")
     }
 
     private fun parceToArray(data: Data): List<Valute>{
@@ -102,10 +102,10 @@ class ValuteRepository(private val applicationContext: Application) {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                Log.d(TAG, "Loaded!")
+                //Log.d(TAG, "Loaded!")
                 callback.notifyDataIsUpdated(parceToArray(it))
             },{
-                Log.e(TAG, "$it")
+                Log.e(MAIN_TAG, "$it")
             }))
     }
 
@@ -117,9 +117,9 @@ class ValuteRepository(private val applicationContext: Application) {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 callback.notifyDataIsDelivered(parceToArray(it))
-                Log.d(TAG, "getValuteFromDb: loaded!")
+                //Log.d(TAG, "getValuteFromDb: loaded!")
             },{
-                Log.e(TAG, "getValuteFromDb: $it", it)
+                Log.e(MAIN_TAG, "getValuteFromDb: $it", it)
             }))
     }
 
@@ -132,9 +132,9 @@ class ValuteRepository(private val applicationContext: Application) {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 valuteDao.saveData(*it)
-                Log.d(TAG, "saveToDb: Saved! ${it.size}")
+                //Log.d(TAG, "saveToDb: Saved! ${it.size}")
             },{
-                Log.e(TAG, "saveToDb: $it")
+                Log.e(MAIN_TAG, "saveToDb: $it")
             }))
     }
 

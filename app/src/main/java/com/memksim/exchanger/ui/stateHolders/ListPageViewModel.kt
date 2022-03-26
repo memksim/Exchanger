@@ -5,7 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.memksim.exchanger.TAG
+import com.memksim.exchanger.MAIN_TAG
 import com.memksim.exchanger.model.Valute
 import com.memksim.exchanger.model.repos.ValuteRepository
 
@@ -39,7 +39,7 @@ class ListPageViewModel(application: Application):
 
     override fun notifyDataIsDelivered(data: List<Valute>) {
         _data.value = data
-        Log.d(TAG, "notifyDataIsDelivered: $data")
+        Log.d(MAIN_TAG, "notifyDataIsDelivered: $data")
     }
 
 }

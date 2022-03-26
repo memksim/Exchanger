@@ -72,8 +72,8 @@ class ListPageFragment: Fragment(R.layout.fragment_list_page), ActionListener {
     }
 
     override fun onItemClicked(valute: Valute) {
-        val action = ListPageFragmentDirections.actionListPageFragmentToExchangePageFragment(valute)
-        navController.navigate(action)
+        /*val action = ListPageFragmentDirections.actionListPageFragmentToInnerExchangePageFragment(valute)
+        navController.navigate(action)*/
 
     }
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_nav_graph"
+    app:startDestination="@id/listPageFragment">
+
+    <fragment
+        android:id="@+id/listPageFragment"
+        android:name="com.memksim.exchanger.ui.views.ListPageFragment"
+        android:label="ListPageFragment" />
+    <fragment
+        android:id="@+id/exchangePageFragment"
+        android:name="com.memksim.exchanger.ui.views.ExchangePageFragment"
+        android:label="ExchangePageFragment" />
+    <fragment
+        android:id="@+id/settingsPageFragment"
+        android:name="com.memksim.exchanger.ui.views.SettingsPageFragment"
+        android:label="SettingsPageFragment" />
+
+</navigation>

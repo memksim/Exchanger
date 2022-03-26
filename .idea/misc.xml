@@ -8,14 +8,19 @@
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/drawable/ic_baseline_home_red.xml" value="0.2565" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/drawable/ic_baseline_settings_red.xml" value="0.2565" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout-land/fragment_exchange_page.xml" value="0.47156153050672184" />
+        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/activity_bottom_nav.xml" value="0.25" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/currency_item.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/dropdpwn_item.xml" value="0.3625" />
-        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/fragment_exchange_page.xml" value="0.4" />
+        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/fragment_exchange_page.xml" value="0.264" />
+        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/fragment_list_page.xml" value="0.264" />
+        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/fragment_settings_page.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/test.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/layout/valute_item.xml" value="0.25" />
+        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/menu/bottom_menu.xml" value="0.25" />
+        <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/menu/bottom_navigation.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/menu/top_app_bar.xml" value="0.3625" />
         <entry key="..\:/Users/kmd02/AndroidStudioProjects/Exchanger/app/src/main/res/menu/top_app_bar_exchange.xml" value="0.3625" />

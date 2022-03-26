@@ -11,16 +11,16 @@
         android:label="ListPageFragment"
         tools:layout="@layout/fragment_list_page">
         <action
-            android:id="@+id/action_listPageFragment_to_exchangePageFragment"
-            app:destination="@id/exchangePageFragment" />
+            android:id="@+id/action_listPageFragment_to_innerExchangePageFragment"
+            app:destination="@id/innerExchangePageFragment" />
     </fragment>
     <fragment
-        android:id="@+id/exchangePageFragment"
-        android:name="com.memksim.exchanger.ui.views.ExchangePageFragment"
-        android:label="ExchangePageFragment"
-        tools:layout="@layout/fragment_exchange_page">
+        android:id="@+id/innerExchangePageFragment"
+        android:name="com.memksim.exchanger.ui.views.InnerExchangePageFragment"
+        android:label="InnerExchangePageFragment"
+        tools:layout="@layout/fragment_exchange_inner_page">
         <action
-            android:id="@+id/action_exchangePageFragment_to_listPageFragment"
+            android:id="@+id/action_innerExchangePageFragment_to_listPageFragment"
             app:destination="@id/listPageFragment" />
         <argument
             android:name="valute"
