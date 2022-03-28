@@ -1,4 +1,4 @@
-package com.memksim.exchanger.ui.views
+package com.memksim.exchanger.ui.inner_exchange
 
 import android.os.Bundle
 import android.view.View
@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import com.memksim.exchanger.R
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.appbar.MaterialToolbar
-import com.memksim.exchanger.ui.stateHolders.ExchangePageViewModel
 
 class InnerExchangePageFragment: Fragment(R.layout.fragment_exchange_inner_page) {
 
@@ -26,11 +25,11 @@ class InnerExchangePageFragment: Fragment(R.layout.fragment_exchange_inner_page)
     private lateinit var navController: NavController
     private val args: InnerExchangePageFragmentArgs by navArgs()
 
-    private lateinit var viewModel: ExchangePageViewModel
+    private lateinit var viewModel: InnerExchangePageViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[ExchangePageViewModel::class.java]
+        viewModel = ViewModelProvider(this)[InnerExchangePageViewModel::class.java]
 
         if(savedInstanceState == null){
             viewModel.setState(args.valute)

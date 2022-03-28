@@ -1,22 +1,21 @@
-package com.memksim.exchanger.ui.stateHolders
+package com.memksim.exchanger.ui.inner_exchange
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.memksim.exchanger.model.Valute
-import com.memksim.exchanger.ui.state.ExchangePageState
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class ExchangePageViewModel: ViewModel() {
+class InnerExchangePageViewModel: ViewModel() {
 
-    private val _data: MutableLiveData<ExchangePageState> by lazy {
+    private val _data: MutableLiveData<InnerExchangePageState> by lazy {
         MutableLiveData()
     }
-    var liveData: LiveData<ExchangePageState> = _data
+    var liveData: LiveData<InnerExchangePageState> = _data
 
     fun setState(valute: Valute){
-        _data.value = ExchangePageState(
+        _data.value = InnerExchangePageState(
             valute = valute,
             sumInRub = valute.value,
             sumInValute = valute.nominal.toDouble()
@@ -28,7 +27,7 @@ class ExchangePageViewModel: ViewModel() {
 
         val result = BigDecimal(rubCount / valute.value).setScale(3, RoundingMode.CEILING).toDouble()
 
-        _data.value = ExchangePageState(
+        _data.value = InnerExchangePageState(
             valute = valute,
             sumInRub = rubCount,
             sumInValute = result
@@ -42,7 +41,7 @@ class ExchangePageViewModel: ViewModel() {
         val oneValute = valuteCount/valute.nominal
         val result = BigDecimal(oneValute * valute.value).setScale(3, RoundingMode.CEILING).toDouble()
 
-        _data.value = ExchangePageState(
+        _data.value = InnerExchangePageState(
             valute = valute,
             sumInRub = result,
             sumInValute = valuteCount

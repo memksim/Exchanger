@@ -1,4 +1,4 @@
-package com.memksim.exchanger.ui.views
+package com.memksim.exchanger.ui.exchange
 
 import androidx.fragment.app.Fragment
 import com.memksim.exchanger.R

@@ -6,15 +6,37 @@
 
     <fragment
         android:id="@+id/listPageFragment"
-        android:name="com.memksim.exchanger.ui.views.ListPageFragment"
-        android:label="ListPageFragment" />
+        android:name="com.memksim.exchanger.ui.list.ListPageFragment"
+        android:label="ListPageFragment">
+        <action
+            android:id="@+id/action_listPageFragment_to_innerExchangePageFragment"
+            app:destination="@id/innerExchangePageFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/innerExchangePageFragment"
+        android:name="com.memksim.exchanger.ui.inner_exchange.InnerExchangePageFragment"
+        android:label="InnerExchangePageFragment">
+        <action
+            android:id="@+id/action_innerExchangePageFragment_to_listPageFragment"
+            app:destination="@id/listPageFragment" />
+        <argument
+            android:name="valute"
+            app:argType="com.memksim.exchanger.model.Valute" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/exchangePageFragment"
-        android:name="com.memksim.exchanger.ui.views.ExchangePageFragment"
+        android:name="com.memksim.exchanger.ui.exchange.ExchangePageFragment"
         android:label="ExchangePageFragment" />
+
+
     <fragment
         android:id="@+id/settingsPageFragment"
-        android:name="com.memksim.exchanger.ui.views.SettingsPageFragment"
+        android:name="com.memksim.exchanger.ui.settings.SettingsPageFragment"
         android:label="SettingsPageFragment" />
+
 
 </navigation>

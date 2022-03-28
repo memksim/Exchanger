@@ -9,7 +9,7 @@ import com.memksim.exchanger.model.ValuteForDb
 import com.memksim.exchanger.model.datasources.database.ValuteDatabase
 import com.memksim.exchanger.model.datasources.network.Client
 import com.memksim.exchanger.model.datasources.network.ValuteApi
-import com.memksim.exchanger.ui.stateHolders.Callback
+import com.memksim.exchanger.ui.list.Callback
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.disposables.CompositeDisposable

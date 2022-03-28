@@ -5,25 +5,5 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/listPageFragment">
 
-    <fragment
-        android:id="@+id/listPageFragment"
-        android:name="com.memksim.exchanger.ui.views.ListPageFragment"
-        android:label="ListPageFragment"
-        tools:layout="@layout/fragment_list_page">
-        <action
-            android:id="@+id/action_listPageFragment_to_innerExchangePageFragment"
-            app:destination="@id/innerExchangePageFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/innerExchangePageFragment"
-        android:name="com.memksim.exchanger.ui.views.InnerExchangePageFragment"
-        android:label="InnerExchangePageFragment"
-        tools:layout="@layout/fragment_exchange_inner_page">
-        <action
-            android:id="@+id/action_innerExchangePageFragment_to_listPageFragment"
-            app:destination="@id/listPageFragment" />
-        <argument
-            android:name="valute"
-            app:argType="com.memksim.exchanger.model.Valute" />
-    </fragment>
+
 </navigation>

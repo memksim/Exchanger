@@ -1,9 +1,7 @@
-package com.memksim.exchanger.ui.views
+package com.memksim.exchanger.ui.list
 
-import android.net.wifi.p2p.WifiP2pManager
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,7 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.memksim.exchanger.R
 import com.memksim.exchanger.model.Valute
-import com.memksim.exchanger.ui.stateHolders.ListPageViewModel
+import com.memksim.exchanger.ui.views.ActionListener
+import com.memksim.exchanger.ui.views.ValuteAdapter
 
 class ListPageFragment: Fragment(R.layout.fragment_list_page), ActionListener {
 
@@ -72,8 +71,8 @@ class ListPageFragment: Fragment(R.layout.fragment_list_page), ActionListener {
     }
 
     override fun onItemClicked(valute: Valute) {
-        /*val action = ListPageFragmentDirections.actionListPageFragmentToInnerExchangePageFragment(valute)
-        navController.navigate(action)*/
+        val action = ListPageFragmentDirections.actionListPageFragmentToInnerExchangePageFragment(valute)
+        navController.navigate(action)
 
     }
 

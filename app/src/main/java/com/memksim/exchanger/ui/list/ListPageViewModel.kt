@@ -1,4 +1,4 @@
-package com.memksim.exchanger.ui.stateHolders
+package com.memksim.exchanger.ui.list
 
 import android.app.Application
 import android.util.Log
@@ -8,6 +8,13 @@ import androidx.lifecycle.MutableLiveData
 import com.memksim.exchanger.MAIN_TAG
 import com.memksim.exchanger.model.Valute
 import com.memksim.exchanger.model.repos.ValuteRepository
+
+interface Callback {
+
+    fun notifyDataIsUpdated(data: List<Valute>)
+    fun notifyDataIsDelivered(data: List<Valute>)
+
+}
 
 class ListPageViewModel(application: Application):
     AndroidViewModel(application), Callback {

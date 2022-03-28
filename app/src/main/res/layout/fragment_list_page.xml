@@ -23,7 +23,7 @@
 
             app:menu="@menu/top_app_bar"
 
-            app:title="@string/app_name"
+            app:title="@string/home_page"
             app:titleTextColor="@color/design_default_color_on_primary"/>
 
     </com.google.android.material.appbar.AppBarLayout>
