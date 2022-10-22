@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/startGuideline"
+        app:layout_constraintGuide_begin="@dimen/startEndMargin"
+        android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/endGuideline"
+        app:layout_constraintGuide_end="@dimen/startEndMargin"
+        android:orientation="vertical"/>
+
+    <TextView
+        android:id="@+id/valuteNominal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/currencyItemTitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/valuteTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="USD"
+        style="@style/titleStyle"
+        app:layout_constraintBottom_toBottomOf="@id/valuteNominal"
+        app:layout_constraintStart_toEndOf="@id/valuteNominal"
+        app:layout_constraintTop_toTopOf="@id/valuteNominal"
+        android:layout_marginStart="@dimen/largeItemStartEndMargin"/>
+
+    <ImageView
+        android:id="@+id/exchangeIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_compare_arrows_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rubNominal"
+        app:layout_constraintStart_toEndOf="@id/valuteTitle"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/mainColor" />
+
+    <TextView
+        android:id="@+id/rubNominal"
+        style="@style/currencyItemTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/rubTitle"
+        app:layout_constraintEnd_toStartOf="@id/rubTitle"
+        app:layout_constraintTop_toTopOf="@id/rubTitle"
+        android:layout_marginEnd="@dimen/largeItemStartEndMargin"
+        tools:text="103" />
+
+    <TextView
+        android:id="@+id/rubTitle"
+        style="@style/titleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/valuteTitle"
+        app:layout_constraintEnd_toStartOf="@id/bookmarkIcon"
+        app:layout_constraintTop_toTopOf="@id/valuteTitle"
+        android:layout_marginEnd="@dimen/largeItemStartEndMargin"
+        tools:text="RUB" />
+
+    <ImageView
+        android:id="@+id/bookmarkIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_bookmark_border_24"
+        app:layout_constraintEnd_toEndOf="@id/endGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

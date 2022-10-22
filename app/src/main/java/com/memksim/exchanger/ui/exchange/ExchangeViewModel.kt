@@ -1,10 +1,10 @@
-package com.memksim.exchanger.ui.notifications
+package com.memksim.exchanger.ui.exchange
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationsViewModel : ViewModel() {
+class ExchangeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is notifications Fragment"
