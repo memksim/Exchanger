@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="@id/valuteNominal"
         app:layout_constraintStart_toEndOf="@id/valuteNominal"
         app:layout_constraintTop_toTopOf="@id/valuteNominal"
-        android:layout_marginStart="@dimen/largeItemStartEndMargin"/>
+        android:layout_marginStart="@dimen/itemStartEndMargin"/>
 
     <ImageView
         android:id="@+id/exchangeIcon"
@@ -71,8 +71,8 @@
         app:layout_constraintBottom_toBottomOf="@id/valuteTitle"
         app:layout_constraintEnd_toStartOf="@id/bookmarkIcon"
         app:layout_constraintTop_toTopOf="@id/valuteTitle"
-        android:layout_marginEnd="@dimen/largeItemStartEndMargin"
-        tools:text="RUB" />
+        android:layout_marginEnd="@dimen/itemStartEndMargin"
+        android:text="@string/title_rub" />
 
     <ImageView
         android:id="@+id/bookmarkIcon"
