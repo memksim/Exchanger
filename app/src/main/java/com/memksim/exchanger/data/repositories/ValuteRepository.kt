@@ -1,6 +1,5 @@
 package com.memksim.exchanger.data.repositories
 
-import android.util.Log
 import com.memksim.exchanger.data.entities.Currency
 import com.memksim.exchanger.data.entities.ValuteRequest
 import com.memksim.exchanger.data.remote.CurrencyApi
@@ -12,11 +11,11 @@ class ValuteRepository {
         ValuteClient.getClient().create(CurrencyApi::class.java)
     }
 
-    suspend fun getPost(): List<Currency>{
+    suspend fun getPost(): List<Currency> {
         return parceToArray(api.getCurrency().body())
     }
 
-    private fun parceToArray(request: ValuteRequest?): List<Currency>{
+    private fun parceToArray(request: ValuteRequest?): List<Currency> {
         val data = request!!
 
         val list = ArrayList<Currency>()

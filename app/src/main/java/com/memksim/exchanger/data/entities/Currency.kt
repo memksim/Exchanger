@@ -13,4 +13,4 @@ data class Currency(
     @SerializedName("Name") val name: String,
     @SerializedName("Value") val value: Double,
     @SerializedName("Previous") val previous: Double
-): Parcelable
+) : Parcelable

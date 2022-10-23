@@ -1,6 +1,5 @@
 package com.memksim.exchanger.ui.dashboard
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,44 +18,34 @@ class DashboardViewModel : ViewModel() {
     }
     val liveData: LiveData<DashboardUiState> = _liveData
 
-    private fun updateState(items: List<DashboardItemUiState>){
+    private fun updateState(items: List<DashboardItemUiState>) {
         _liveData.value = DashboardUiState(
             items
         )
     }
 
-    fun updateData(){
+    fun updateData() = viewModelScope.launch {
         val currencyList = arrayListOf<DashboardItemUiState>()
 
-        viewModelScope.launch {
-            val scope = viewModelScope.async {
-                remoteRepository.getPost()
-            }
-
-            val data = scope.await()
-            for (item in data) {
-                currencyList.add(
-                    DashboardItemUiState(
-                        charCode = item.charCode,
-                        nominal = item.nominal,
-                        name = item.name,
-                        value = item.value,
-                        previous = item.previous,
-                        isBookmarked = false
-                    )
-                )
-            }
-
-            updateState(currencyList)
-        }
-
-    }
-
-    /*private suspend fun getCurrency(): Deferred<List<CurrencyRequest>> {
         val scope = viewModelScope.async {
             remoteRepository.getPost()
         }
 
-        return scope
-    }*/
+        val data = scope.await()
+        for (item in data) {
+            currencyList.add(
+                DashboardItemUiState(
+                    charCode = item.charCode,
+                    nominal = item.nominal,
+                    name = item.name,
+                    value = item.value,
+                    previous = item.previous,
+                    isBookmarked = false
+                )
+            )
+        }
+
+        updateState(currencyList)
+    }
+
 }
