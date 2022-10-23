@@ -6,7 +6,7 @@ data class DashboardUiState(
 
 data class DashboardItemUiState(
     val charCode: String,
-    val nominal: Int,
+    val nominal: String,
     val name: String,
     val value: Double,
     val previous: Double,

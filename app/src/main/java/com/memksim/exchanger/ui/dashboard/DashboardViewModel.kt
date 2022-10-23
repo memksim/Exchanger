@@ -36,16 +36,29 @@ class DashboardViewModel : ViewModel() {
             currencyList.add(
                 DashboardItemUiState(
                     charCode = item.charCode,
-                    nominal = item.nominal,
+                    nominal = adaptNominal(item.nominal),
                     name = item.name,
-                    value = item.value,
+                    value = adaptValue(item.value),
                     previous = item.previous,
                     isBookmarked = false
                 )
             )
         }
 
+
+
         updateState(currencyList)
+    }
+
+    private fun adaptValue(d: Double): Double = (d * 100).toInt().toDouble() / 100
+
+    private fun adaptNominal(n: Int): String{
+        return if(n < 1000){
+            n.toString()
+        }else{
+            val str = n/1000
+            "${str}k"
+        }
     }
 
 }
