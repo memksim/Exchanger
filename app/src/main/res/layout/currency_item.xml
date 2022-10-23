@@ -42,15 +42,14 @@
         android:layout_marginStart="@dimen/itemStartEndMargin"/>
 
     <ImageView
-        android:id="@+id/exchangeIcon"
+        android:id="@+id/trendingIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_compare_arrows_24"
+        tools:src="@drawable/ic_baseline_trending_up_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/rubNominal"
         app:layout_constraintStart_toEndOf="@id/valuteTitle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/mainColor" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/rubNominal"

@@ -40,7 +40,8 @@ class DashboardViewModel : ViewModel() {
                     name = item.name,
                     value = adaptValue(item.value),
                     previous = item.previous,
-                    isBookmarked = false
+                    isBookmarked = false,
+                    isTrendingUp = checkIsTrendingGrows(item.previous, item.value)
                 )
             )
         }
@@ -52,13 +53,17 @@ class DashboardViewModel : ViewModel() {
 
     private fun adaptValue(d: Double): Double = (d * 100).toInt().toDouble() / 100
 
-    private fun adaptNominal(n: Int): String{
-        return if(n < 1000){
+    private fun adaptNominal(n: Int): String {
+        return if (n < 1000) {
             n.toString()
-        }else{
-            val str = n/1000
+        } else {
+            val str = n / 1000
             "${str}k"
         }
+    }
+
+    private fun checkIsTrendingGrows(prev: Double, now: Double): Boolean {
+        return now < prev
     }
 
 }

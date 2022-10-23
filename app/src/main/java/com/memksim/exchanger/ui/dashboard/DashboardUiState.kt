@@ -10,5 +10,6 @@ data class DashboardItemUiState(
     val name: String,
     val value: Double,
     val previous: Double,
-    val isBookmarked: Boolean
+    val isBookmarked: Boolean,
+    val isTrendingUp: Boolean
 )

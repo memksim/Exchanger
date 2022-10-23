@@ -2,8 +2,12 @@ package com.memksim.exchanger.ui.dashboard
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.memksim.exchanger.R
 import com.memksim.exchanger.databinding.FragmentDashboardBinding
@@ -28,6 +32,23 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
         with(binding.currencyList) {
             adapter = dashboardAdapter
+
+            val itemDecoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
+                .also {
+                    ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable.vertical_divider,
+                        null
+                    )?.let { dr ->
+                        it.setDrawable(dr)
+                    }
+                }
+
+
+            addItemDecoration(
+                itemDecoration
+            )
+
         }
     }
 }
