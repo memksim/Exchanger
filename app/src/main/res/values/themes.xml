@@ -17,7 +17,7 @@
     <style name="toolbarStyle" parent="Widget.MaterialComponents.Toolbar">
         <item name="android:background">@color/mainColor</item>
         <item name="titleTextColor">@color/white</item>
-        <item name="iconTint">@color/white</item>
+        <item name="android:tint">@color/white</item>
     </style>
 
     <style name="titleStyle" parent="Widget.MaterialComponents.TextView">

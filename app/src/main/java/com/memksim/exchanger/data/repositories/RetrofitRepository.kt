@@ -1,24 +1,24 @@
 package com.memksim.exchanger.data.repositories
 
-import com.memksim.exchanger.data.entities.Currency
+import com.memksim.exchanger.data.entities.Valute
 import com.memksim.exchanger.data.entities.ValuteRequest
-import com.memksim.exchanger.data.remote.CurrencyApi
+import com.memksim.exchanger.data.remote.ValuteApi
 import com.memksim.exchanger.data.remote.ValuteClient
 
-class ValuteRepository {
+class RetrofitRepository {
 
-    private val api: CurrencyApi by lazy {
-        ValuteClient.getClient().create(CurrencyApi::class.java)
+    private val api: ValuteApi by lazy {
+        ValuteClient.getClient().create(ValuteApi::class.java)
     }
 
-    suspend fun getPost(): List<Currency> {
+    suspend fun getPost(): List<Valute> {
         return parceToArray(api.getCurrency().body())
     }
 
-    private fun parceToArray(request: ValuteRequest?): List<Currency> {
+    private fun parceToArray(request: ValuteRequest?): List<Valute> {
         val data = request!!
 
-        val list = ArrayList<Currency>()
+        val list = ArrayList<Valute>()
 
         list.add(data.valute._aud)
         list.add(data.valute._azn)

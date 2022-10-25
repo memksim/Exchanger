@@ -7,11 +7,12 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.memksim.exchanger.R
+import com.memksim.exchanger.data.entities.Currency
 import com.memksim.exchanger.databinding.CurrencyItemBinding
 
 class DashboardDiffCallback(
-    private val oldList: List<DashboardItemUiState>,
-    private val newList: List<DashboardItemUiState>
+    private val oldList: List<Currency>,
+    private val newList: List<Currency>
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return oldList.size
@@ -31,9 +32,9 @@ class DashboardDiffCallback(
 
 }
 
-class DashboardAdapter() : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
+class DashboardAdapter : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
 
-    var items: List<DashboardItemUiState> = emptyList()
+    var items: List<Currency> = emptyList()
         set(value) {
             val result = DiffUtil.calculateDiff(
                 DashboardDiffCallback(

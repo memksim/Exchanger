@@ -1,15 +1,8 @@
 package com.memksim.exchanger.ui.dashboard
 
+import com.memksim.exchanger.data.entities.Currency
+
 data class DashboardUiState(
-    val currencyList: List<DashboardItemUiState>
+    val currencyList: List<Currency>
 )
 
-data class DashboardItemUiState(
-    val charCode: String,
-    val nominal: String,
-    val name: String,
-    val value: Double,
-    val previous: Double,
-    val isBookmarked: Boolean,
-    val isTrendingUp: Boolean
-)

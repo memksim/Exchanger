@@ -1,16 +1,16 @@
 package com.memksim.exchanger.data.entities
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-import com.google.gson.annotations.SerializedName
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-@Parcelize
+@Entity(tableName = "currency_table")
 data class Currency(
-    @SerializedName("ID") val id: String,
-    @SerializedName("NumCode") val numCode: String,
-    @SerializedName("CharCode") val charCode: String,
-    @SerializedName("Nominal") val nominal: Int,
-    @SerializedName("Name") val name: String,
-    @SerializedName("Value") val value: Double,
-    @SerializedName("Previous") val previous: Double
-) : Parcelable
+    @PrimaryKey(autoGenerate = false)
+    val charCode: String,
+    val nominal: String,
+    val name: String,
+    val value: Double,
+    val previous: Double,
+    val isBookmarked: Boolean,
+    val isTrendingUp: Boolean
+)

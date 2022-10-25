@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kmd02/Desktop/Pet/Exchanger/app/src/main/res/drawable/ic_baseline_refresh_24.xml" value="0.14" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/Exchanger/app/src/main/res/drawable/ic_baseline_trending_down_24.xml" value="0.14" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/Exchanger/app/src/main/res/drawable/ic_baseline_trending_up_24.xml" value="0.14" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/Exchanger/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -11,6 +12,7 @@
         <entry key="..\:/Users/kmd02/Desktop/Pet/Exchanger/app/src/main/res/layout/fragment_exchange.xml" value="0.25" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/Exchanger/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/kmd02/Desktop/Pet/Exchanger/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/Users/kmd02/Desktop/Pet/Exchanger/app/src/main/res/menu/top_app_bar_manu.xml" value="0.20253164556962025" />
       </map>
     </option>
   </component>

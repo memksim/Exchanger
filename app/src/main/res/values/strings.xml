@@ -4,4 +4,5 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_exchange">Exchange</string>
     <string name="title_rub">RUB</string>
+    <string name="refresh">Refresh</string>
 </resources>
