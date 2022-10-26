@@ -5,4 +5,6 @@
     <string name="title_exchange">Exchange</string>
     <string name="title_rub">RUB</string>
     <string name="refresh">Refresh</string>
+    <string name="saved">Saved!</string>
+    <string name="removed">Removed!</string>
 </resources>

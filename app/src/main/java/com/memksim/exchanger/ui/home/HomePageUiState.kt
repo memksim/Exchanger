@@ -1,13 +1,14 @@
-package com.memksim.exchanger.ui.dashboard
+package com.memksim.exchanger.ui.home
 
 import com.memksim.exchanger.usecases.ItemState
 import com.memksim.exchanger.usecases.UiState
 
-data class DashboardUiState(
-    val itemStateList: List<DashboardItemUiState>
+data class HomePageUiState(
+    val itemStateList: List<HomePageItemUiState>
 ) : UiState
 
-data class DashboardItemUiState(
+data class HomePageItemUiState(
+    val lastUpdated: String,
     val charCode: String,
     val nominal: String,
     val name: String,
@@ -15,5 +16,5 @@ data class DashboardItemUiState(
     val previous: Double,
     val isBookmarked: Boolean,
     val isTrendingUp: Boolean,
-    val onSaveBookmark: (DashboardItemUiState) -> Unit
+    val onRemoveBookmark: (HomePageItemUiState) -> Unit
 ) : ItemState

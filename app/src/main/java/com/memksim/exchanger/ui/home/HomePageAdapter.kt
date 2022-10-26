@@ -1,4 +1,4 @@
-package com.memksim.exchanger.ui.dashboard
+package com.memksim.exchanger.ui.home
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,12 +8,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.memksim.exchanger.R
-import com.memksim.exchanger.data.entities.Currency
 import com.memksim.exchanger.databinding.CurrencyItemBinding
 
-class DashboardDiffCallback(
-    private val oldList: List<DashboardItemUiState>,
-    private val newList: List<DashboardItemUiState>
+class HomePageDiffCallback(
+    private val oldList: List<HomePageItemUiState>,
+    private val newList: List<HomePageItemUiState>
 ) : DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return oldList.size
@@ -33,12 +32,12 @@ class DashboardDiffCallback(
 
 }
 
-class DashboardAdapter : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
+class HomePageAdapter : RecyclerView.Adapter<HomePageAdapter.HomePageViewHolder>() {
 
-    var items: MutableList<DashboardItemUiState> = mutableListOf()
+    var items: MutableList<HomePageItemUiState> = mutableListOf()
         set(value) {
             val result = DiffUtil.calculateDiff(
-                DashboardDiffCallback(
+                HomePageDiffCallback(
                     field,
                     value
                 )
@@ -47,7 +46,7 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardAdapter.DashboardViewHold
             result.dispatchUpdatesTo(this)
         }
 
-    inner class DashboardViewHolder(
+    inner class HomePageViewHolder(
         private val binding: CurrencyItemBinding,
         private val context: Context
     ) : RecyclerView.ViewHolder(binding.root) {
@@ -100,23 +99,22 @@ class DashboardAdapter : RecyclerView.Adapter<DashboardAdapter.DashboardViewHold
                         )
                     )
                     items[position] = item
-                    item.onSaveBookmark(item)
+                    item.onRemoveBookmark(item)
                 }
             }
-
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomePageViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = CurrencyItemBinding.inflate(inflater)
 
-        return DashboardViewHolder(binding, parent.context)
+        return HomePageViewHolder(binding, parent.context)
     }
 
-    override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: HomePageViewHolder, position: Int) =
         holder.onBind(position)
 
     override fun getItemCount(): Int = items.size
-
 }
+

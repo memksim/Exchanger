@@ -43,7 +43,7 @@ def lifecycle_version = "2.5.1"
 def room_version = "2.4.3"
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
 
     //ui

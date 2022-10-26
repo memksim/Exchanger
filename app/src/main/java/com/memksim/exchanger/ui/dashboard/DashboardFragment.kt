@@ -2,12 +2,9 @@ package com.memksim.exchanger.ui.dashboard
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -25,16 +22,16 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
         val dashboardAdapter = DashboardAdapter()
 
-        viewModel.liveData.observe(viewLifecycleOwner, Observer {
-            dashboardAdapter.items = it.currencyList
-        })
+        viewModel.liveData.observe(viewLifecycleOwner) {
+            dashboardAdapter.items = it.itemStateList.toMutableList()
+        }
 
         with(binding) {
 
             toolbar.setOnMenuItemClickListener { menuItem ->
-                when(menuItem.itemId){
-                    R.id.refresh ->{
-                        viewModel.loadData()
+                when (menuItem.itemId) {
+                    R.id.refresh -> {
+                        viewModel.loadNetworkData()
                         true
                     }
 
@@ -42,7 +39,7 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 }
             }
 
-            currencyList.run{
+            currencyList.run {
                 adapter = dashboardAdapter
 
                 val itemDecoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
@@ -62,5 +59,10 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
                 )
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshData()
     }
 }

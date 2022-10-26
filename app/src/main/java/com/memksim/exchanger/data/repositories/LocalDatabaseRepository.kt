@@ -1,6 +1,7 @@
 package com.memksim.exchanger.data.repositories
 
 import android.content.Context
+import android.util.Log
 import com.memksim.exchanger.data.entities.Currency
 import com.memksim.exchanger.data.local.CurrencyDatabase
 
@@ -9,23 +10,23 @@ class LocalDatabaseRepository(
 ) {
     private val api = CurrencyDatabase.getInstance(context).getDao()
 
-    suspend fun checkIfTableIsEmpty(): Boolean{
+    suspend fun checkIfTableIsEmpty(): Boolean {
         return api.getCount() == 0
     }
 
-    suspend fun getBookmarked(): List<Currency>{
+    suspend fun getBookmarkedList(): List<Currency> {
         return api.getBookmarkedList()
     }
 
-    suspend fun getCurrencyList(): List<Currency>{
+    suspend fun getCurrencyList(): List<Currency> {
         return api.getCurrencyList()
     }
 
-    suspend fun saveCurrency(currencyList: List<Currency>){
-        api.saveCurrency(*currencyList.toTypedArray())
+    suspend fun saveCurrency(vararg c: Currency) {
+        api.saveCurrency(*c)
     }
 
-    suspend fun updateCurrency(currencyList: List<Currency>){
-        api.updateCurrency(*currencyList.toTypedArray())
+    suspend fun updateCurrency(vararg c: Currency) {
+        api.updateCurrency(*c)
     }
 }
