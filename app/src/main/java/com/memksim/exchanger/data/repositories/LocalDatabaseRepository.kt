@@ -1,14 +1,12 @@
 package com.memksim.exchanger.data.repositories
 
-import android.content.Context
-import android.util.Log
 import com.memksim.exchanger.data.entities.Currency
-import com.memksim.exchanger.data.local.CurrencyDatabase
+import com.memksim.exchanger.data.local.CurrencyDao
+import javax.inject.Inject
 
-class LocalDatabaseRepository(
-    private val context: Context
+class LocalDatabaseRepository @Inject constructor(
+    private val api: CurrencyDao
 ) {
-    private val api = CurrencyDatabase.getInstance(context).getDao()
 
     suspend fun checkIfTableIsEmpty(): Boolean {
         return api.getCount() == 0

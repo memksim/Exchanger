@@ -1,24 +1,30 @@
 package com.memksim.exchanger.ui.dashboard
 
-import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
 import com.memksim.exchanger.data.entities.Currency
-import com.memksim.exchanger.data.entities.Valute
 import com.memksim.exchanger.data.repositories.LocalDatabaseRepository
 import com.memksim.exchanger.data.repositories.RetrofitRepository
 import com.memksim.exchanger.usecases.RequestViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DashboardViewModel(
-    application: Application
-) : RequestViewModel(application) {
+@HiltViewModel
+class DashboardViewModel @Inject constructor(
+    private val remoteRepository: RetrofitRepository,
+    private val localRepository: LocalDatabaseRepository
+) : RequestViewModel(localRepository) {
 
     private val _liveData: MutableLiveData<DashboardUiState> = liveData {
         emit(
             DashboardUiState(
-                parseCurrencyListToUiItemList(localRepository.getCurrencyList())
+                DashboardItemUiState
+                    .convertCurrencyListToItemList(
+                        localRepository.getCurrencyList()
+                    ) {
+                        onBookmark(it)
+                    }
             )
         )
     } as MutableLiveData<DashboardUiState>
@@ -30,13 +36,24 @@ class DashboardViewModel(
         )
     }
 
-    fun refreshData(){
+    private fun onBookmark(item: DashboardItemUiState) {
         viewModelScope.launch {
-            val scope = viewModelScope.async{
+            localRepository.updateCurrency(item.convertToCurrency())
+        }
+    }
+
+    fun refreshData() {
+        viewModelScope.launch {
+            val scope = viewModelScope.async {
                 localRepository.getCurrencyList()
             }
             val data: List<Currency> = scope.await()
-            updateState(parseCurrencyListToUiItemList(data))
+            updateState(
+                DashboardItemUiState
+                    .convertCurrencyListToItemList(data) {
+                        onBookmark(it)
+                    }
+            )
         }
     }
 
@@ -44,67 +61,25 @@ class DashboardViewModel(
         viewModelScope.launch {
 
             val scope = viewModelScope.async {
-                if(isTableEmpty){
+                if (isTableEmpty) {
                     remoteRepository.getPost()
-                }else{
-                    remoteRepository.getPost(parseUiItemListToCurrencyList(_liveData.value!!.itemStateList))
+                } else {
+                    remoteRepository.getPost(
+                        DashboardItemUiState
+                            .convertListToCurrencyList(_liveData.value!!.itemStateList)
+                    )
                 }
             }
             val data = scope.await()
 
-            updateState(parseCurrencyListToUiItemList(data))
+            updateState(
+                DashboardItemUiState
+                    .convertCurrencyListToItemList(data){
+                        onBookmark(it)
+                    }
+            )
             saveCurrencyLocal(data)
         }
-    }
-
-    private fun parseCurrencyListToUiItemList(currencyList: List<Currency>): List<DashboardItemUiState> {
-        val itemList = mutableListOf<DashboardItemUiState>()
-
-        for (i in currencyList.indices) {
-            itemList.add(parseCurrencyToUiItemState(currencyList[i]))
-        }
-
-        return itemList
-    }
-
-    private fun parseCurrencyToUiItemState(
-        c: Currency
-    ): DashboardItemUiState {
-        return DashboardItemUiState(
-            c.charCode,
-            c.nominal,
-            c.name,
-            c.value,
-            c.previous,
-            c.isBookmarked,
-            c.isTrendingUp
-        ) {
-            viewModelScope.launch {
-                localRepository.updateCurrency(parseUiItemToCurrency(it))
-            }
-        }
-    }
-
-    private fun parseUiItemToCurrency(item: DashboardItemUiState): Currency{
-        return Currency(
-            item.charCode,
-            item.nominal,
-            item.name,
-            item.value,
-            item.previous,
-            item.isBookmarked,
-            item.isTrendingUp
-        )
-    }
-
-    private fun parseUiItemListToCurrencyList(itemList: List<DashboardItemUiState>): List<Currency>{
-        val resultList = arrayListOf<Currency>()
-        for(i in itemList){
-            resultList.add(
-                parseUiItemToCurrency(i)
-            )
-        }
-        return resultList
     }
 
 }

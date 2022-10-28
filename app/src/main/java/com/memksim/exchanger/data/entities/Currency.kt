@@ -13,4 +13,34 @@ data class Currency(
     val previous: Double,
     val isBookmarked: Boolean,
     val isTrendingUp: Boolean
-)
+){
+    companion object{
+        fun compareWithOldList(
+            oldList: List<Currency>,
+            newList: List<Currency>
+        ): List<Currency> {
+            val resultList = arrayListOf<Currency>()
+            newList.forEach { newC ->
+                oldList.forEach { oldC ->
+                    if (newC.charCode == oldC.charCode) {
+                        resultList.add(
+                            Currency(
+                                charCode = newC.charCode,
+                                nominal = newC.nominal,
+                                name = newC.name,
+                                value = newC.value,
+                                previous = oldC.value,
+                                isBookmarked = oldC.isBookmarked,
+                                isTrendingUp = newC.value < newC.previous
+                            )
+                        )
+                    }
+
+                }
+            }
+
+            return resultList
+        }
+    }
+
+}

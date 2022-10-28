@@ -1,9 +1,6 @@
 package com.memksim.exchanger.data.local
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.memksim.exchanger.data.entities.Currency
 
 @Dao
@@ -18,7 +15,7 @@ interface CurrencyDao {
     @Query("SELECT * FROM currency_table WHERE isBookmarked = 1")
     suspend fun getBookmarkedList(): List<Currency>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveCurrency(vararg currency: Currency)
 
     @Update
