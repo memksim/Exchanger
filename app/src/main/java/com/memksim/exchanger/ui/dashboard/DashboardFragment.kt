@@ -1,42 +1,70 @@
 package com.memksim.exchanger.ui.dashboard
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.memksim.exchanger.R
 import com.memksim.exchanger.databinding.FragmentDashboardBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class DashboardFragment : Fragment() {
+@AndroidEntryPoint
+class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private val binding by viewBinding(FragmentDashboardBinding::bind)
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private val viewModel: DashboardViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val dashboardAdapter = DashboardAdapter()
 
-        val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        viewModel.liveData.observe(viewLifecycleOwner) {
+            dashboardAdapter.items = it.itemStateList.toMutableList()
         }
-        return root
+
+        with(binding) {
+
+            toolbar.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.refresh -> {
+                        viewModel.loadNetworkData()
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+
+            currencyList.run {
+                adapter = dashboardAdapter
+
+                val itemDecoration = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
+                    .also {
+                        ResourcesCompat.getDrawable(
+                            resources,
+                            R.drawable.vertical_divider,
+                            null
+                        )?.let { dr ->
+                            it.setDrawable(dr)
+                        }
+                    }
+
+
+                addItemDecoration(
+                    itemDecoration
+                )
+            }
+        }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onResume() {
+        super.onResume()
+        viewModel.refreshData()
     }
 }
